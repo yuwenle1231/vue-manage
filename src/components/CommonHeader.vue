@@ -2,7 +2,7 @@
   <header>
     <div class="l-content">
         <!-- plain 纯色的 -->
-        <el-button plain icon="el-icon-menu" sizi="mini"></el-button>
+        <el-button @click="handleMenu" plain icon="el-icon-menu" sizi="mini"></el-button>
         <h3 style="color:#fff">首页</h3>
     </div>
     <div class="r-content">
@@ -26,6 +26,11 @@ export default {
         return {
             // 在vue的js引⼊图⽚，就需要使⽤require(“路径”)进来
             userImg:require('../assets/images/user.png')
+        }
+    },
+    methods: {
+        handleMenu(){
+            this.$store.commit('collapseMenu')
         }
     },
 }

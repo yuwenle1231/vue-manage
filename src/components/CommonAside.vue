@@ -1,6 +1,7 @@
 <template>
-  <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-    <h3>通用后台管理系统</h3>
+  <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  :collapse="isCollapse">
+  <!-- 判断isCollaspe是否存在（true/false） -->
+    <h3  >{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
     <!-- 导航=> 首页 商品管理 用户管理 -->
     <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path">
           <i :class="'el-icon-' + item.icon"></i>
@@ -42,7 +43,7 @@
     name:'CommonAside',
     data() {
       return {
-        isCollapse: false,//控制是否默认展开
+        // isCollapse: false,//控制是否默认展开  这个是写死的，通过vuex在下面写了点击控制它的动态方法
         menu:[
         {
           path: '/',
@@ -107,6 +108,10 @@
         },
         hasChildren(){
           return this.menu.filter(item => item.children)
+        },
+        // 点击控制它的动态方法   读取数据就是$store.state.xxx
+        isCollapse(){
+          return this.$store.state.tab.isCollapse
         }
     }
   }
