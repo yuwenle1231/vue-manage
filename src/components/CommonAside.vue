@@ -16,7 +16,7 @@
         <!-- 其他的下一级        subItem 就是item.children被迭代的数组元素的别名
                                 subIndex 即当前项的索引   名字有别而已           -->
         <el-menu-item-group v-for="(subItem,subIndex) in item.children" :key="subItem">
-            <el-menu-item :index="subIndex">{{subItem.label}}</el-menu-item>
+            <el-menu-item @click="clickMenu(subItem)" :index="subIndex">{{subItem.label}}</el-menu-item>
         </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -97,9 +97,9 @@
       //   console.log(key, keyPath);
       // },
       clickMenu(item){
-        this.$router.push({
-            name:item.name
-        })
+        this.$router.push({name:item.name}) // 即可实现路由跳转
+        //点击菜单，修改tab.js里的state
+        this.$store.commit('selectMenu',item)
       }
     },
     computed:{
@@ -111,6 +111,7 @@
         },
         // 点击控制它的动态方法   读取数据就是$store.state.xxx
         isCollapse(){
+          //就是这种写法，tab换到哪都不行
           return this.$store.state.tab.isCollapse
         }
     }

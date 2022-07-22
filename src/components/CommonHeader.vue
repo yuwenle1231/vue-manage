@@ -3,7 +3,10 @@
     <div class="l-content">
         <!-- plain 纯色的 -->
         <el-button @click="handleMenu" plain icon="el-icon-menu" sizi="mini"></el-button>
-        <h3 style="color:#fff">首页</h3>
+        <!-- 面包屑 -->
+        <el-breadcrumb separator=">">
+            <el-breadcrumb-item v-for="item in tags" :key="item.path" :to="{ path: item.path }" >{{item.label}}</el-breadcrumb-item>
+        </el-breadcrumb>
     </div>
     <div class="r-content">
             <el-dropdown trigger="click" size="mini">
@@ -20,6 +23,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex' // 借助mapState生成计算属性
 export default {
     name:'CommonHeader',
     data() {
@@ -33,6 +37,11 @@ export default {
             this.$store.commit('collapseMenu')
         }
     },
+    computed:{
+        ...mapState({
+            tags:state => state.tab.tabsList
+        }),
+    }
 }
 </script>
 
@@ -44,6 +53,7 @@ header{
     align-items: center; //上下居中
 }
 .l-content{
+    color:#00F;
     display: flex;
     align-items: center; //上下居中
     .el-button{

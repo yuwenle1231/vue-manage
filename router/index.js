@@ -15,12 +15,27 @@ export default new VueRouter({
                 {
                     path:'/home',
                     name:'home',
-                    component:()=> import('../views/home')  //写到home就行，后面默认去找index
+                    component:()=> import('../views/home')  //写到home就行，后面默认去找index  这种叫按需引入
                 },
                 {
                     path:'/user',
                     name:'user',
                     component:()=> import('../views/User')
+                },
+                {
+                    path:'/mall',
+                    name:'mall',
+                    component:()=> import('../views/mall')
+                },
+                {
+                    path:'/page1',
+                    name:'page1',
+                    component:()=> import('../views/other/pageOne')
+                },
+                {
+                    path:'/page2',
+                    name:'page2',
+                    component:()=> import('../views/other/pageTwo')
                 }
             ]
         },

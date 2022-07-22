@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import {Button,Radio,Container,Main,Header,Aside,Menu,MenuItem,MenuItemGroup,Submenu,Dropdown,DropdownItem,DropdownMenu,Row,Card,Col,Table,TableColumn} from 'element-ui';
+import {
+  Button, Radio, Container, Main, Header, Aside, Menu, MenuItem, MenuItemGroup, Submenu, Dropdown, 
+  DropdownItem, DropdownMenu, Row, Card, Col, Table, TableColumn, Breadcrumb, BreadcrumbItem, Tag, Form,
+  FormItem,Input,Select,Switch,DatePicker,Option,Dialog
+} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from '../router'
 import store from '../store'
@@ -29,6 +33,17 @@ Vue.use(Card);
 Vue.use(Col);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
+Vue.use(Tag);
+Vue.use(FormItem);
+Vue.use(Form);
+Vue.use(Input);
+Vue.use(Select);
+Vue.use(Switch);
+Vue.use(DatePicker);
+Vue.use(Option);
+Vue.use(Dialog);
 //绑定http
 Vue.prototype.$http = http
 
