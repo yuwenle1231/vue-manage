@@ -11,6 +11,8 @@ export default new VueRouter({
             path:'/',
             name:'Main',
             component:()=> import('../views/Main.vue') ,
+            //重定向到home
+            redirect:'/home',
             children:[
                 {
                     path:'/home',

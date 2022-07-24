@@ -3,7 +3,7 @@ import App from './App.vue'
 import {
   Button, Radio, Container, Main, Header, Aside, Menu, MenuItem, MenuItemGroup, Submenu, Dropdown, 
   DropdownItem, DropdownMenu, Row, Card, Col, Table, TableColumn, Breadcrumb, BreadcrumbItem, Tag, Form,
-  FormItem,Input,Select,Switch,DatePicker,Option,Dialog
+  FormItem,Input,Select,Switch,DatePicker,Option,Dialog,Pagination,MessageBox,Message
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from '../router'
@@ -44,8 +44,11 @@ Vue.use(Switch);
 Vue.use(DatePicker);
 Vue.use(Option);
 Vue.use(Dialog);
+Vue.use(Pagination);
 //绑定http
 Vue.prototype.$http = http
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$message = Message
 
 new Vue({
   router,

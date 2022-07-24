@@ -4,8 +4,9 @@
     <el-row class="home" :gutter="20" style="margin-top: 20px">
       <!-- span	栅格占据的列数 列  列  -->
       <el-col :span="8">
-        <!-- 通过shadow属性设置卡片阴影出现的时机：always、hover或never -->
+        <!-- 名片 card start -->
         <el-card shadow="hover">
+          <!-- 通过shadow属性设置卡片阴影出现的时机：always、hover或never -->
           <!-- 这些类都是写好了的，在main.js里面全局引入了的 -->
           <div class="user">
             <img :src="userImg" />
@@ -19,6 +20,9 @@
             <p>上次登录地点: <span>成都</span></p>
           </div>
         </el-card>
+        <!-- 名片 card end -->
+
+        <!-- 表格 card start -->
         <el-card style="margin-top: 20px; height: 460px">
           <!-- el-table元素中注入data对象数组 -->
           <el-table :data="tableData">
@@ -32,29 +36,29 @@
             </el-table-column>
           </el-table>
         </el-card>
+        <!-- 表格 card end -->
       </el-col>
+
       <el-col :span="16" style="">
         <div class="num">
           <!-- body-style	设置 body 的样式	object	—	{ padding: '20px' } -->
-          <el-card
-            v-for="item in countData"
-            :key="item.name"
-            :body-style="{ display: 'flex', padding: '0' }"
-          >
-            <i
-              class="icon"
-              :class="`el-icon-${item.icon}`"
-              :style="{ background: item.color }"
-            ></i>
+
+          <!-- 计数 card start -->
+          <el-card v-for="item in countData" :key="item.name" :body-style="{ display: 'flex', padding: '0' }">
+            <i class="icon" :class="`el-icon-${item.icon}`" :style="{ background: item.color }"></i>
             <div class="detail">
               <p class="num">￥{{ item.value }}</p>
               <p class="txt">{{ item.name }}}</p>
             </div>
           </el-card>
+          <!-- 计数 card end -->
         </div>
+          <!-- 折线图 card start -->
         <el-card style="height: 250px">
           <div style="height: 250px" ref="echarts"></div>
         </el-card>
+          <!-- 折线图 card end -->
+          <!-- 柱状图 饼图 start -->
         <div class="graph">
           <el-card style="height: 295px">
             <div style="height:280px" ref="userEcharts"></div>
@@ -63,12 +67,14 @@
             <div style="height:280px" ref="videoEcharts"></div>            
           </el-card>
         </div>
+        <!-- 柱状图 饼图 start -->
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+// 从获取数据
 import {getData} from '../../api/data.js'
 //引入echarts
 import * as echarts from 'echarts';
