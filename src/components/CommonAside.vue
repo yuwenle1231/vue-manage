@@ -45,47 +45,47 @@
       return {
         // isCollapse: false,//控制是否默认展开  这个是写死的，通过vuex在下面写了点击控制它的动态方法
         menu:[
-        {
-          path: '/',
-          name: 'home',
-          label: '首页',
-          icon: 's-home',
-          url: 'Home/Home'
-        },
-        {
-          path: '/mall',
-          name: 'mall',
-          label: '商品管理',
-          icon: 'video-play',
-          url: 'MallManage/MallManage'
-        },
-        {
-          path: '/user',
-          name: 'user',
-          label: '用户管理',
-          icon: 'user',
-          url: 'UserManage/UserManage'
-        },
-        {
-          label: '其他',
-          icon: 'location',
-          children: [
-            {
-              path: '/page1',
-              name: 'page1',
-              label: '页面1',
-              icon: 'setting',
-              url: 'Other/PageOne'
-            },
-            {
-              path: '/page2',
-              name: 'page2',
-              label: '页面2',
-              icon: 'setting',
-              url: 'Other/PageTwo'
-            }
-          ]
-        }
+        // {
+        //   path: '/',
+        //   name: 'home',
+        //   label: '首页',
+        //   icon: 's-home',
+        //   url: 'Home/Home'
+        // },
+        // {
+        //   path: '/mall',
+        //   name: 'mall',
+        //   label: '商品管理',
+        //   icon: 'video-play',
+        //   url: 'MallManage/MallManage'
+        // },
+        // {
+        //   path: '/user',
+        //   name: 'user',
+        //   label: '用户管理',
+        //   icon: 'user',
+        //   url: 'UserManage/UserManage'
+        // },
+        // {
+        //   label: '其他',
+        //   icon: 'location',
+        //   children: [
+        //     {
+        //       path: '/page1',
+        //       name: 'page1',
+        //       label: '页面1',
+        //       icon: 'setting',
+        //       url: 'Other/PageOne'
+        //     },
+        //     {
+        //       path: '/page2',
+        //       name: 'page2',
+        //       label: '页面2',
+        //       icon: 'setting',
+        //       url: 'Other/PageTwo'
+        //     }
+        //   ]
+        // }
       ]
       };
     },
@@ -104,15 +104,18 @@
     },
     computed:{
         noChildren(){
-         return this.menu.filter(item=> !item.children)
+         return this.asyncMenu.filter(item=> !item.children)
         },
         hasChildren(){
-          return this.menu.filter(item => item.children)
+          return this.asyncMenu.filter(item => item.children)
         },
         // 点击控制它的动态方法   读取数据就是$store.state.xxx
         isCollapse(){
           //就是这种写法，tab换到哪都不行
           return this.$store.state.tab.isCollapse
+        },
+        asyncMenu(){
+          return this.$store.state.tab.menu
         }
     }
   }

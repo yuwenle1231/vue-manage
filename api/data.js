@@ -1,4 +1,5 @@
 import axios from "./axios";
+// 定义接口请求？
 
 export const getMenu = (param)=>{
     return axios.request({
@@ -21,3 +22,11 @@ export const getUser = (params)=>{
         params
     })
 }
+
+// export const getMenu = (param)=>{
+//     return axios.request({
+//         url:'/permission/getMenu',
+//         method:'post',
+//         data:param
+//     })
+// }

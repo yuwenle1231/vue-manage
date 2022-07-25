@@ -1,6 +1,6 @@
 <template>
   <div class="common-table">
-    <el-table :data="tableData" height="90%" stripe>
+    <el-table :data="tableData"  stripe>
         <el-table-column show-overflow-tooltip v-for="item in tableLabel" :key="item.prop" :label="item.label" :width="item.width ? item.width : 125" >
             <template slot-scope="scope">
                 <span style="margin-left:10px">{{ scope.row[item.prop] }}</span>
@@ -52,8 +52,8 @@
     position: relative;
     .pager{
         position:absolute;
-        bottom:0;
-        right:20px;
+        bottom:-40px;
+        right:10px;
     }
 }
 </style>

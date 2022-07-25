@@ -10,7 +10,7 @@
     <div class="manage-header">
       <el-button type="primary" @click="addUser" >新增</el-button>
       <common-form :formLabel="formLabel" :form="serchForm" :inline="true" ref="form" >
-        <el-button type="primary" @click="getList(searchForm.keyword)" >搜索</el-button>
+        <el-button type="primary" @click="getList(serchForm.keyword)" >搜索</el-button>
       </common-form>
       </div>
       <common-table :tableData="tableData" :tableLabel="tableLabel" :config="config" @changePage="getList()" @edit="editUser" @del="delUser"  ></common-table>

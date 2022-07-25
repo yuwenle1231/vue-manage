@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    mode:'history', //另一个是hash模式
+    mode:'history', 
     routes:[
         {
             path:'/',
@@ -14,33 +14,38 @@ export default new VueRouter({
             //重定向到home
             redirect:'/home',
             children:[
-                {
-                    path:'/home',
-                    name:'home',
-                    component:()=> import('../views/home')  //写到home就行，后面默认去找index  这种叫按需引入
-                },
-                {
-                    path:'/user',
-                    name:'user',
-                    component:()=> import('../views/User')
-                },
-                {
-                    path:'/mall',
-                    name:'mall',
-                    component:()=> import('../views/mall')
-                },
-                {
-                    path:'/page1',
-                    name:'page1',
-                    component:()=> import('../views/other/pageOne')
-                },
-                {
-                    path:'/page2',
-                    name:'page2',
-                    component:()=> import('../views/other/pageTwo')
-                }
+                // {
+                //     path:'/home',
+                //     name:'home',
+                //     component:()=> import('../views/home')  //写到home就行，后面默认去找index  这种叫按需引入
+                // },
+                // {
+                //     path:'/user',
+                //     name:'user',
+                //     component:()=> import('../views/User')
+                // },
+                // {
+                //     path:'/mall',
+                //     name:'mall',
+                //     component:()=> import('../views/mall')
+                // },
+                // {
+                //     path:'/page1',
+                //     name:'page1',
+                //     component:()=> import('../views/other/pageOne.vue')
+                // },
+                // {
+                //     path:'/page2',
+                //     name:'page2',
+                //     component:()=> import('../views/other/pageTwo.vue')
+                // }
             ]
         },
+        {
+            path:'/login',
+            name:'login',
+            component:()=> import('../views/Login/login.vue')
+        }
         
     ]
 })
